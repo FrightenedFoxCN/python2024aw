@@ -12,6 +12,7 @@ nav:
   - 主页: index.md
   - 一些有意思的补充资料: 
     - interesting-addendum/index.md
+    - Python 虚拟环境管理: interesting-addendum/environment.md
     - 运用 Python 学习大学数学: interesting-addendum/sympy.md
   - 常见问题: 
     - faq/index.md
