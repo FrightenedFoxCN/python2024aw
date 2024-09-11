@@ -1,0 +1,16 @@
+site_name: 2024 年 Python 秋冬学习资料
+theme: 
+  name: material
+  features:
+    - content.code.annotate
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.indexes
+    - navigation.top
+nav:
+  - 主页: index.md
+  - 一些有意思的补充资料: 
+    - interesting-addendum/index.md
+    - 运用 Python 学习大学数学: interesting-addendum/sympy.md
+  - 常见问题: 
+    - faq/index.md
