@@ -1,6 +1,7 @@
 site_name: 2024 年 Python 秋冬学习资料
 theme: 
   name: material
+  custom_dir: overrides
   features:
     - content.code.annotate
     - navigation.tracking
