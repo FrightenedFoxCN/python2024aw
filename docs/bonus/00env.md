@@ -6,13 +6,27 @@
 
 ### 下载并安装 Thonny
 
-打开 [Thonny 官网](https://thonny.org)，将鼠标移动到下图右上角的 "Windows" 上，选择第一个链接进行下载. 不建议使用 Python 3.8 的版本，事实上 Python 3.10 也并非最新，但对于本课程来说已经足够使用了.
+=== "Windows"
 
-![thonny-install](../assets/lab0/thonny-install.png)
+    打开 [Thonny 官网](https://thonny.org)，将鼠标移动到下图右上角的 "Windows" 上，选择第一个链接进行下载. 不建议使用 Python 3.8 的版本，事实上 Python 3.10 也并非最新，但对于本课程来说已经足够使用了.
 
-然后运行安装程序，按照指引完成安装. 等到出现如下界面，就表明安装已经完成：
+    ![thonny-install](../assets/lab0/thonny-install-windows.png)
 
-![thonny-install-success](../assets/lab0/thonny-install-success.png)
+    然后运行安装程序，按照指引完成安装. 等到出现如下界面，就表明安装已经完成：
+
+    ![thonny-install-success](../assets/lab0/thonny-install-windows-success.png)
+
+=== "macOS"
+
+    打开 [Thonny 官网](https://thonny.org)，将鼠标移动到下图右上角的 "macOS" 上，点击链接下载.
+
+    ![](../assets/lab0/thonny-install-macos.png)
+
+    打开下载的 `pkg` 文件，按照指引完成安装.
+
+    ![](../assets/lab0/thonny-install-macos-pkg.png)
+
+    安装完成后，你可以在启动台中找到 Thonny 的图标.
 
 ### Thonny 界面介绍和使用
 
@@ -63,10 +77,10 @@
 ## 使用命令行工具进行包管理
 
 !!! warning
-    
+
     这里的许多配置都并非最佳选项. 在本机上直接安装 Python 及其软件包更为推荐的一种方式是建立虚拟环境，使用例如 conda 之类的工具进行管理，否则可能会出现尾大不掉、甚至版本冲突的问题. 但是在此为了简单起见，我们直接使用本机的基础环境建立 Python 安装，这对于我们的这些实验本身来说足够了. 有兴趣的同学自可查找关于 conda 的相关信息，我们以后也可能会在补充文档中进行介绍.
 
-    另外，因为这是较为不推荐的方式，这里的文档会有所精简，且仅对 Windows 系统用户进行介绍. 如果使用 macOS，Python3 通常是自带的，读者可直接跳到命令行的使用部分，用自带的终端执行对应的指令完成操作.
+    另外，因为这是较为不推荐的方式，这里的文档会有所精简，且仅对 Windows 系统用户进行介绍. 如果使用 macOS，请读者跳到[命令行的使用部分](#_3)，用自带的终端执行对应的指令完成操作.
 
 ### Python 的下载和安装
 
@@ -78,15 +92,31 @@
 
 ### 命令行的使用
 
-按 Windows + R 打开运行界面，输入 powershell 并回车. 你应当会看到一片蓝色的界面：
+=== "Windows"
 
-![powershell-line](../assets/lab0/powershell-line.png)
+    按 Windows + R 打开运行界面，输入 powershell 并回车. 你应当会看到一片蓝色的界面：
 
-其中 `Frigh` 应该是你的用户名. 在其中输入 `python`，并回车. 为美观起见，下面笔者的界面都是安装了 Windows Terminal 之后的执行结果，默认终端输入输出无殊.
+    ![powershell-line](../assets/lab0/powershell-line.png)
 
-![powershell-interactive-python](../assets/lab0/powershell-interactive-python.png)
+    其中 `Frigh` 应该是你的用户名. 在其中输入 `python`，并回车. 为美观起见，下面笔者的界面都是安装了 Windows Terminal 之后的执行结果，默认终端输入输出无殊.
 
-你会发现我们同样进入了交互式终端的界面. 在其中你同样可以进行交互式终端的操作. 输入 `exit()` 或者 Ctrl + Z 以退出.
+    ![powershell-interactive-python](../assets/lab0/powershell-interactive-python.png)
+
+    你会发现我们同样进入了交互式终端的界面. 在其中你同样可以进行交互式终端的操作. 输入 `exit()` 或者 ++ctrl+z++ 以退出.
+
+=== "macOS"
+
+    在启动台中搜索“终端”，打开终端. 也可以使用快捷键 ++command+space++，然后输入“终端”进行搜索.
+
+    ![](../assets/lab0/launchpad.png)
+
+    在终端中输入 `python3` 并回车. 若之前没有使用过命令行工具，会提示安装 Xcode Command Line Tools，按照提示进行安装即可.
+
+    ![](../assets/lab0/xcode-select.png)
+
+    安装完成后，即可通过在终端中输入 `python3` 并回车进入 Python 交互式终端. 输入 `exit()` 或者 ++ctrl+z++ 以退出. **在后文中提到在命令行中输入 `python` 时，macOS 用户应当使用 `python3` 代替.**
+
+    ![](../assets/lab0/macos-terminal.png)
 
 ### 使用 pip 进行包管理
 
@@ -105,14 +135,17 @@ python -m pip install <包名>
 !!! note
 
     这里我们使用的是
-    
+
     ```powershell
     python -m pip install <包名>
     ```
+
     而不是一般的教程使用的更精简的
+
     ```powershell
     pip install <包名>
     ```
+
     这是因为直接使用 `pip` 指令进行安装的方式在较新的版本中将被弃置.
 
     此外，如果 `python` 指令不起作用，可以尝试直接使用 `py` 或者 `python3`，如果依旧不行，请参阅环境变量相关事宜一节.
