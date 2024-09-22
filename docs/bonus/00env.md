@@ -94,7 +94,7 @@
 
 === "Windows"
 
-    按 Windows + R 打开运行界面，输入 powershell 并回车. 你应当会看到一片蓝色的界面：
+    按 ++win+r++ 打开运行界面，输入 powershell 并回车. 你应当会看到一片蓝色的界面：
 
     ![powershell-line](../assets/lab0/powershell-line.png)
 
@@ -108,15 +108,15 @@
 
     在启动台中搜索“终端”，打开终端. 也可以使用快捷键 ++command+space++，然后输入“终端”进行搜索.
 
-    ![](../assets/lab0/launchpad.png)
+    ![launchpad](../assets/lab0/launchpad.png)
 
     在终端中输入 `python3` 并回车. 若之前没有使用过命令行工具，会提示安装 Xcode Command Line Tools，按照提示进行安装即可.
 
-    ![](../assets/lab0/xcode-select.png)
+    ![xcode-select](../assets/lab0/xcode-select.png)
 
     安装完成后，即可通过在终端中输入 `python3` 并回车进入 Python 交互式终端. 输入 `exit()` 或者 ++ctrl+z++ 以退出. **在后文中提到在命令行中输入 `python` 时，macOS 用户应当使用 `python3` 代替.**
 
-    ![](../assets/lab0/macos-terminal.png)
+    ![macos-terminal](../assets/lab0/macos-terminal.png)
 
 ### 使用 pip 进行包管理
 
@@ -151,6 +151,10 @@ python -m pip install <包名>
     此外，如果 `python` 指令不起作用，可以尝试直接使用 `py` 或者 `python3`，如果依旧不行，请参阅环境变量相关事宜一节.
 
 ### 环境变量相关事宜
+
+!!! note "提示"
+
+    本节仅供 Windows 用户参考.
 
 通俗地讲，环境变量（environment variable / PATH）就是系统在收到一个指令之后应该到哪里去寻找这个指令. 打开 Python 的安装目录，我们会看到一堆 exe 类型的文件：
 
