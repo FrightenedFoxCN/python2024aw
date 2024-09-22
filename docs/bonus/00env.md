@@ -6,7 +6,7 @@
 
 ### 下载并安装 Thonny
 
-打开 [Thonny 官网](www.thonny.org)，将鼠标移动到下图右上角的下载按钮上，选择第一个链接进行下载. 不建议使用 Python 3.8 的版本，事实上 Python 3.10 也并非最新，但对于本课程来说已经足够使用了.
+打开 [Thonny 官网](https://thonny.org)，将鼠标移动到下图右上角的 "Windows" 上，选择第一个链接进行下载. 不建议使用 Python 3.8 的版本，事实上 Python 3.10 也并非最新，但对于本课程来说已经足够使用了.
 
 ![thonny-install](../assets/lab0/thonny-install.png)
 
@@ -131,6 +131,6 @@ python -m pip install <包名>
 
 ## 参考资料
 
-- [Thonny 官网](www.thonny.org)
-- [Python 官网](https://www.python.org/)
+- [Thonny 官网](https://thonny.org)
+- [Python 官网](https://www.python.org)
 - [pip 官方文档](https://pip.pypa.io/en/stable/user_guide/)
