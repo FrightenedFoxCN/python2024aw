@@ -22,6 +22,7 @@ nav:
   - 常见问题:
     - faq/index.md
     - 程序安装及使用的问题: faq/installation.md
+    - 基本输入输出: faq/basic_io.md
   - 实验文档:
     - bonus/index.md
     - 环境配置指南: bonus/00env.md
