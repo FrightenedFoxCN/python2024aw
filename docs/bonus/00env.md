@@ -114,7 +114,7 @@
 
     ![xcode-select](../assets/lab0/xcode-select.png)
 
-    安装完成后，即可通过在终端中输入 `python3` 并回车进入 Python 交互式终端. 输入 `exit()` 或者 ++ctrl+z++ 以退出. **在后文中提到在命令行中输入 `python` 时，macOS 用户应当使用 `python3` 代替.**
+    安装完成后，即可通过在终端中输入 `python3` 并回车进入 Python 交互式终端. 输入 `exit()` 或者 ++control+d++ 以退出. **在后文中提到在命令行中输入 `python` 时，macOS 用户应当使用 `python3` 代替.**
 
     ![macos-terminal](../assets/lab0/macos-terminal.png)
 
