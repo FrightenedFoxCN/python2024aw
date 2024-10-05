@@ -17,12 +17,15 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
+  - pymdownx.arithmatex:
+      generic: true
 nav:
   - 主页: index.md
   - 常见问题:
     - faq/index.md
     - 程序安装及使用的问题: faq/installation.md
     - 基本输入输出: faq/basic_io.md
+    - 类型与值: faq/typing.md
   - 实验文档:
     - bonus/index.md
     - 环境配置指南: bonus/00env.md
@@ -31,3 +34,9 @@ nav:
     - interesting-addendum/index.md
     # - Python 虚拟环境管理: interesting-addendum/environment.md
     # - 运用 Python 学习大学数学: interesting-addendum/sympy.md
+extra_javascript:
+  - assets/js/katex.js
+  - https://unpkg.com/katex@0/dist/katex.min.js
+  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
+extra_css:
+  - https://unpkg.com/katex@0/dist/katex.min.css
