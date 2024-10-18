@@ -221,8 +221,6 @@ a, b, c = ['1', '2', '3']
     实际上我们还有一些有意思的写法：
 
     ```python
-    >>> str.split
-    <method 'split' of 'str' objects>
     >>> str.split("abacadabra", "a")
     ['', 'b', 'c', 'd', 'br', '']
     ```
@@ -233,7 +231,7 @@ a, b, c = ['1', '2', '3']
 
 !!! quote "判断题"
 
-    当输入是：`45,8` 时，下面程序的输出结果是 37。
+    当输入是：`45,8` 时，下面程序的输出结果是 37.
 
     ```python
     a, b = input().split(',')
@@ -369,7 +367,7 @@ True
 False
 ```
 
-!!! note "提示"
+!!! note "关于 `#!python type`"
 
     思考一下这一行代码是如何运作的！
 
@@ -395,7 +393,7 @@ b = int(a)
 
 ### 任何值都有类型，而类型也是值
 
-最后，我们以一个有趣的例子结束本讲：
+我们以一个有趣的例子结束本节：
 
 ```python
 >>> type(print)
@@ -444,4 +442,243 @@ TypeError: type() takes 1 or 3 arguments
     a = input.split()
     ```
 
-    因为 `#!python input` 函数是一个 `#!python builtin_function_or_method` 类型的值，而不是一个字符串. 它没有 `#!python split` 方法. 只有调用它，我们才能得到一个 `#!python str` 类型的值.
+    因为 `#!python input` 函数是一个 `#!python builtin_function_or_method` 类型的值，而不是一个字符串. 它没有 `#!python split` 方法. 只有使用 `#!python input()`，我们才能得到一个 `#!python str` 类型的值，并在其上调用 `#!python split` 方法.
+
+## `#!python bool` 类型与逻辑运算
+
+在 Python 中，`#!python bool` 表示**布尔值**. `#!python bool` 类型只有两个值：`True` 和 `False`. 同 `#!python int`、`#!python str` 等类型一样，`#!python bool` 也是 Python 中的一个**内置类型**. 它被广泛地运用在各种控制结构中，例如 `#!python if` 语句、`#!python while` 循环等等.
+
+```python
+>>> type(bool)
+<class 'type'>
+>>> type(True)
+<class 'bool'>
+>>> type(False)
+<class 'bool'>
+```
+
+而提到布尔值，我们就不得不提到另一对极其重要的概念：**真值**（truthy）和**假值**（falsy），我们现在可以理解为，能使得控制结构中的条件成立的值是真值，反之则是假值. 在这里非常非常非常重要的一点是，真值和假值只是一个**概念**，它们并不指代一个具体的值.
+
+!!! quote "[逻辑值检测](https://docs.python.org/zh-cn/3/library/stdtypes.html#truth-value-testing)"
+
+    ...以下基本完整地列出了具有假值的内置对象：
+
+    - 被定义为假值的常量: `None` 和 `False`
+    - 任何数值类型的零: `#!python 0`, `#!python 0.0`, `#!python 0j`, `#!python Decimal(0)`, `#!python Fraction(0, 1)`
+    - 空的序列和多项集: `#!python ''`, `#!python ()`, `#!python []`, `#!python {}`, `#!python set()`, `#!python range(0)`
+
+```python
+if 0:  # 把这里的 0 换成上面的任何一个假值，效果都是一样的
+    print("这一句永远不会打印")
+```
+
+如果将任何假值转换为 `#!python bool` 类型，就会得到一个 `False`：
+
+```python
+>>> bool(0)
+False
+>>> bool("")
+False
+>>> bool([])
+False
+>>> bool(False)
+False
+```
+
+而真值则是除了假值之外的所有值. 任何非零的数，非空的字符串、列表、元组、字典、集合，甚至是函数、类型等等，都是真值. 例如：
+
+```python
+>>> bool(-1)
+True
+>>> bool(1e-324)  # 10 的 -324 次方
+True
+>>> bool(" ")     # 一个空格
+True
+>>> bool([0])
+True
+>>> bool(bool)
+True
+>>> bool(type)
+True
+>>> bool(print)
+True
+```
+
+同样的，这些对变量也是适用的：
+
+```python
+>>> a = [0]
+>>> bool(a)
+True
+```
+
+!!! quote "判断题"
+
+    在 Python 中，`#!python if` 语句的条件必须是一个布尔值.
+
+当然，我们知道这是错误的. 条件可以是任何值，只要它能被转换为布尔值即可.
+
+!!! quote "判断题"
+
+    `#!python bool(FALSE)` 的返回值是 `True`.
+
+这是一道错题，即题目本身是错误的. 它既不是 `#!python bool(False)`（注意大小写！），也不是 `#!python bool("FALSE")`. 在这里 `FALSE` 只会被作为一个变量名来解释，所以结果完全取决于 `FALSE` 这个变量的值：
+
+```python
+>>> FALSE = 0
+>>> bool(FALSE)
+False
+>>> FALSE = 1
+>>> bool(FALSE)
+True
+```
+
+当然，如果 `FALSE` 没有被定义，那么会产生一个 `#!python NameError` 错误.
+
+---
+
+我们举个例子：如何将字符串 `#!python "True"` 和 `#!python "False"` 转换为布尔值？直接使用 `#!python bool` 作转换是行不通的：
+
+```python
+>>> bool("True")
+True
+>>> bool("False")
+True
+```
+
+这是因为任何非空的字符串都是真值，当然包括 `#!python "False"` 这个字符串. 对于这种情况，简单地使用 `#!python if` 语句来判断即可：
+
+```python
+>>> s = "True"
+>>> if s == "True":
+...     b = True
+... elif s == "False":
+...     b = False
+... else:
+...     print("Invalid input")
+...
+>>> b
+True
+```
+
+### `#!python 0` 不是 `False`
+
+这个小节标题称作 `#!python int` 不是 `#!python bool` 也许会更恰当一些. 我们已经知道 `#!python 0` 是一个假值，但它**不是** `#!python False`：
+
+```python
+>>> 0 == False
+True
+>>> 0 is False
+False
+```
+
+`#!python ==` 运算符是**值比较**，它会比较两个值是否相等. 而 `#!python is` 运算符是**身份比较**，它会比较两个值是否是同一个对象. 当然，我们无需理解 `#!python is` 运算符的具体细节，只需知道，在这里我们强调的是：`#!python 0` 是一个 `#!python int` 类型的值，而 `#!python False` 是一个 `#!python bool` 类型的值. 它们是不同的类型. 我们很快会看到这意味着什么.
+
+### `#!python bool` 作为数字，以及逻辑运算
+
+在 Python 中，`#!python bool` 类型的值也可以被**当作**数字来使用. `True` 被当作 `#!python 1`，`False` 被当作 `#!python 0`：
+
+```python
+>>> True + True
+2
+>>> True + False
+1
+>>> False + False
+0
+>>> True * 3
+3
+>>> True * False
+0
+```
+
+!!! note "关于 `#!python bool`"
+
+    实际上 `#!python bool` 类型的值是 `#!python int` 类型的子类，但这并不是我们需要关心的事情.
+
+    ```python
+    >>> issubclass(bool, int)
+    True
+    ```
+
+逻辑运算符 `#!python not`、`#!python and`、`#!python or` 是 Python 中表示逻辑运算的关键字，优先级按这个顺序递减.
+
+`#!python not` 计算一个值的**逻辑非**：
+
+```python
+>>> not True
+False
+>>> not False
+True
+>>> not -1
+False
+```
+
+它会将一个真值转换为 `False`，将一个假值转换为 `True`，所以 `#!python not` 运算符的结果永远是一个 `#!python bool` 类型的值.
+
+当然，这没什么意思. 真正有意思的是 `#!python and` 和 `#!python or` 运算符，它们分别计算**逻辑与**和**逻辑或**. 我们应当已经知道逻辑与和逻辑或是如何工作的，不过也许，实际上，它们真正的工作方式并不是我们想象的那样——不妨来看看 Python 文档中的[布尔运算](https://docs.python.org/zh-cn/3/library/stdtypes.html#boolean-operations-and-or-not)一节：
+
+!!! quote "[布尔运算 --- `and`, `or`, `not`](https://docs.python.org/zh-cn/3/library/stdtypes.html#boolean-operations-and-or-not)"
+
+    这些属于布尔运算，按优先级升序排列：
+
+    | **运算** | **结果：** |
+    |--------|---------|
+    | `#!python x or y` | 如果 *x* 为真值，则 *x*，否则 *y* |
+    | `#!python x and y` | 如果 *x* 为假值，则 *x*，否则 *y* |
+    | `#!python not x` | 如果 *x* 为假值，则 `True`，否则 `False` |
+
+<!-- 同时，就在这一节的下面，[比较运算](https://docs.python.org/zh-cn/3/library/stdtypes.html#comparisons)一节中，我们可以看到：
+
+!!! quote "[比较运算](https://docs.python.org/zh-cn/3/library/stdtypes.html#comparisons)"
+
+    在 Python 中有八种比较运算符。 它们的优先级相同（比布尔运算的优先级高）。 比较运算可以任意串连；例如，`#!python x < y <= z` 等价于 `#!python x < y and y <= z`，前者的不同之处在于 *y* 只被求值一次（但在两种情况下当 `#!python x < y` 结果为假值时 *z* 都不会被求值）。
+-->
+
+我们来看一个例子：
+
+!!! quote "判断题"
+
+    表达式 `#!python 3 and 0 and "hello"` 的值是 `False`.
+
+我们来分析这个表达式：
+
+1. 逻辑与运算是从左到右进行的，所以上面的表达式等价于 `#!python (3 and 0) and "hello"`.
+2. 首先来看 `#!python 3 and 0`. 由于 `#!python 3` 是真值，所以根据上面的表格，它的结果是 `#!python 0`.
+3. 然后再看 `#!python 0 and "hello"`. 由于 `#!python 0` 是假值，所以根据上面的表格，它的结果是 `#!python 0`.
+4. 最后，表达式的值是 `#!python 0`，而不是 `False`. 所以这道题是错误的.
+
+注意到这里体现了 `#!python 0` 不是 `False` 的概念. 在这里最为重要的一点是，尽管这些值在许多方面都可能表现得很相似，但归根结底，它们仍然是不同的类型，不可混为一谈. 这也是我们在本节中反复强调的：**类型和值是绑定的**.
+
+## `None`
+
+`None` 是 Python 中的一个特殊值，表示**空值**. 它是 `NoneType` 类型的唯一一个值. `None` 通常用于表示一个函数没有返回值，或者一个变量存在但没有被赋值. 例如：
+
+```python hl_lines="2"
+>>> a = None
+>>> a
+>>> print(a)
+None
+>>> type(a)
+<class 'NoneType'>
+```
+
+注意这里的第二行，交互式环境中没有任何输出. 这是因为交互式环境不会**显示** `#!python None` 的值. 但这里又没有报错——表明 `a` 这个变量是确实存在的. `#!python print()` 函数会正常**输出** `#!python None`.
+
+同时，`#!python print()` 函数的返回值就是 `#!python None`：
+
+```python
+>>> a = print("Hello, world!")
+Hello, world!
+>>> print(a)
+None
+```
+
+或者，一个更有意思的写法是：
+
+```python
+>>> print(print(None))
+None
+None
+```
+
+读者应该可以理解这段代码为什么会输出两个 `#!python None` 了.
