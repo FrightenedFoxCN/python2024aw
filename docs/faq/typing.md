@@ -490,7 +490,7 @@ False
 ```python
 >>> bool(-1)
 True
->>> bool(1e-324)  # 10 的 -324 次方
+>>> bool(4.9406565e-324)  # 最接近 0 的正浮点数
 True
 >>> bool(" ")     # 一个空格
 True
