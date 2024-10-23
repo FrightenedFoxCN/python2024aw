@@ -30,6 +30,8 @@ nav:
     - bonus/index.md
     - 环境配置指南: bonus/00env.md
     - 基于 NumPy 与 Pillow 的图像创建与基本变换: bonus/01numpy.md
+    - 基于 Monte-Carlo 算法实现积分计算: bonus/02monte-carlo.md
+    # - Quine!: bonus/02quine.md
   - 一些有意思的补充资料:
     - interesting-addendum/index.md
     # - Python 虚拟环境管理: interesting-addendum/environment.md
