@@ -19,75 +19,17 @@
 
 ### 环境配置和安装
 
-参考[环境配置指南](http://127.0.0.1:8000/bonus/00env/)中的指导安装 Matplotlib 库. 
+参考[环境配置指南](00env.md)中的指导安装 Matplotlib 库.
 
 ### 利用圆面积估计 $\pi$ 值
 
 我们都已经熟知，积分本质上就是面积的计算. 我们首先考虑计算简单图形的面积：圆面积. 一个圆是由 $x^2 + y^2 <= 1$ 所界定的一块面积. 而根据高中学过的关于几何概型的知识，一个图形的面积与总面积的比值就是在总面积上投点落入图形当中的概率. 也就是说，我们可以考虑以下图形：
 
-<center>
-<svg
-   width="48"
-   height="48"
-   viewBox="0 0 48 48"
-   version="1.1"
-   id="svg1"
-   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
-   sodipodi:docname="绘图.svg"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <sodipodi:namedview
-     id="namedview1"
-     pagecolor="#ffffff"
-     bordercolor="#000000"
-     borderopacity="0.25"
-     inkscape:showpageshadow="2"
-     inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
-     inkscape:document-units="px"
-     inkscape:zoom="16.958333"
-     inkscape:cx="23.970516"
-     inkscape:cy="24"
-     inkscape:window-width="1920"
-     inkscape:window-height="1010"
-     inkscape:window-x="-6"
-     inkscape:window-y="-6"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
-  <defs
-     id="defs1" />
-  <g
-     inkscape:label="图层 1"
-     inkscape:groupmode="layer"
-     id="layer1">
-    <circle
-       style="fill:#d7d7d7;fill-opacity:0.74011302;stroke:#38e8d9;stroke-width:0.298137;stroke-dasharray:none;stroke-opacity:1"
-       id="path1"
-       cx="23.849998"
-       cy="23.85"
-       r="23.850931" />
-    <rect
-       style="fill:#9e9e9e;fill-opacity:0.0169492;stroke:#38e8d9;stroke-width:0.298137;stroke-dasharray:none;stroke-opacity:1"
-       id="rect2"
-       width="47.701862"
-       height="47.701862"
-       x="0.14906833"
-       y="0.14906833" />
-    <rect
-       style="fill:#e92b58;fill-opacity:0;stroke:#e56fcb;stroke-width:0.296296;stroke-dasharray:none;stroke-opacity:1"
-       id="rect3"
-       width="23.703705"
-       height="23.703705"
-       x="24.148148"
-       y="0.14814816" />
-  </g>
-</svg>
-</center>
+<figure markdown="span">
+![](../assets/bonus/monte-carlo-1.svg){ width=200px }
+</figure>
 
-上面的图形中，只要取在阴影部分，我们就假定它在圆内. 因此，采用一个随机数生成器的手段，根据点落在圆内的频率估计总的概率，就能给出圆面积的估计. 为了方便起见，我们考虑第一象限的圆，即上图中粉色方框给出的部分. 
+上面的图形中，只要取在阴影部分，我们就假定它在圆内. 因此，采用一个随机数生成器的手段，根据点落在圆内的频率估计总的概率，就能给出圆面积的估计. 为了方便起见，我们考虑第一象限的圆，即上图中粉色方框给出的部分.
 
 首先，我们需要引入随机数库并完成基本参数的设置：
 
@@ -144,10 +86,10 @@ num_samples = 10000000
 for _ in range(num_samples):
     x = random.random()
     y = random.random()
-    
+
     if x ** 2 + y ** 2 <= 1:
         inside_circle += 1
-        
+
 pi_estimate = 4 * (inside_circle / num_samples)
 ```
 
@@ -168,7 +110,7 @@ def sampling(i):
 !!! note
 
     一般地，我们用三引号来表示一个函数的文档. 读者可以尝试使用
-    
+
     ```python
     sampling.__doc__
     ```
@@ -194,12 +136,12 @@ def check(x, y):
 ```python
 inside_circle = 0
 num_samples = 10000000
-for _ in range(num_samples):
-    x, y = sampling(_)
-    
+for i in range(num_samples):
+    x, y = sampling(i)
+
     if check(x, y):
         inside_circle += 1
-        
+
 pi_estimate = 4 * (inside_circle / num_samples)
 ```
 
@@ -212,7 +154,7 @@ pi_estimate = 4 * (inside_circle / num_samples)
 ### 利用 matplotlib 可视化采样的过程
 
 !!! note
-    
+
     对于更加习惯 C 式的程序的读者，可以将主程序也包裹起来，下面是对上面的程序进行修改的结果：
 
     ```python
@@ -239,12 +181,12 @@ pi_estimate = 4 * (inside_circle / num_samples)
         return x ** 2 + y ** 2 <= 1
 
     if __name__ == "__main__":
-        for _ in range(num_samples):
-            x, y = sampling(_)
-            
+        for i in range(num_samples):
+            x, y = sampling(i)
+
             if check(x, y):
                 inside_circle += 1
-                
+
         pi_estimate = 4 * (inside_circle / num_samples)
 
         print(pi_estimate)
@@ -286,10 +228,10 @@ def update(frame):
     global inside_circle
     x_inside, y_inside = [], []
     x_outside, y_outside = [], []
-    
+
     for _ in range(update_step):
         x, y = sampling(_)
-        
+
         if check(x, y):
             inside_circle += 1
             x_inside.append(x)
@@ -297,15 +239,15 @@ def update(frame):
         else:
             x_outside.append(x)
             y_outside.append(y)
-    
+
     ax.scatter(x_inside, y_inside, color="red", s=0.03)
     ax.scatter(x_outside, y_outside, color="blue", s=0.03)
-    
+
     x_inside.clear()
     y_inside.clear()
     x_outside.clear()
     y_outside.clear()
-    
+
     pi_estimate = 4 * (inside_circle / (frame * update_step)) if frame != 0 else 0
     plt.title(f"Estimating pi using Monte Carlo method: {pi_estimate:.4f}")
 ```
@@ -316,7 +258,7 @@ def update(frame):
 ani = animation.FuncAnimation(fig, update, frames=num_samples // update_step)
 ```
 
-这个函数使用 `update` 作为一个回调函数（callback）来传入. 
+这个函数使用 `update` 作为一个回调函数（callback）来传入.
 
 !!! notes "回调函数"
 
@@ -398,10 +340,10 @@ def update(frame):
     global inside_circle
     x_inside, y_inside = [], []
     x_outside, y_outside = [], []
-    
+
     for _ in range(update_step):
         x, y = sampling(_)
-        
+
         if check(x, y):
             inside_circle += 1
             x_inside.append(x)
@@ -409,15 +351,15 @@ def update(frame):
         else:
             x_outside.append(x)
             y_outside.append(y)
-    
+
     ax.scatter(x_inside, y_inside, color="red", s=0.03)
     ax.scatter(x_outside, y_outside, color="blue", s=0.03)
-    
+
     x_inside.clear()
     y_inside.clear()
     x_outside.clear()
     y_outside.clear()
-    
+
     pi_estimate = 4 * (inside_circle / (frame * update_step)) if frame != 0 else 0
     plt.title(f"Estimating pi using Monte Carlo method: {pi_estimate:.4f}")
 
@@ -434,7 +376,7 @@ if __name__ == "__main__":
     plt.show()
 ```
 
-### *修改随机数生成器：一个额外练习
+### \* 修改随机数生成器：一个额外练习
 
 !!! warning
 
@@ -485,7 +427,7 @@ def sampling(k, b1, b2):
     """
     x = halton_sequence(k, b1)
     y = halton_sequence(k, b2)
-    
+
     return (x, y)
 ```
 
@@ -512,7 +454,7 @@ def sampling(k, b1, b2):
     """
     x = halton_sequence(k, b1)
     y = halton_sequence(k, b2)
-    
+
     return (x, y)
 
 def check(x, y):
@@ -528,10 +470,10 @@ factor1 = 17
 factor2 = 23
 for i in range(num_samples):
     x, y = sampling(i, factor1, factor2)
-    
+
     if check(x, y):
         inside_circle += 1
-        
+
 pi_estimate = 4 * (inside_circle / num_samples)
 ```
 
@@ -542,13 +484,13 @@ inside_circle = 0
 num_samples = 10000000
 factor1 = 17
 factor2 = 23
-seed = 19830821
+seed = 19260817
 for i in range(num_samples):
     x, y = sampling(i * seed, factor1, factor2)
-    
+
     if check(x, y):
         inside_circle += 1
-        
+
 pi_estimate = 4 * (inside_circle / num_samples)
 ```
 

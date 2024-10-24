@@ -10,6 +10,8 @@ theme:
     - navigation.indexes
     - navigation.top
 markdown_extensions:
+  - attr_list
+  - md_in_html
   - admonition
   - pymdownx.keys
   - pymdownx.inlinehilite
