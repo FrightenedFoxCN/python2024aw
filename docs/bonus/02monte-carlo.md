@@ -255,10 +255,10 @@ def update(frame):
 对于每一帧，我们进行 100 个采样的循环，并且估计 `pi` 值. 其中比较难以理解的可能是 `ax` 的 `scatter` 方法. 它在这个图像上**增加**了一系列散点，其 `x` 和 `y` 的坐标分别是前面两个数组给出的对应数值. `color` 参数表征画点的颜色，而 `s` 表征画点的轮廓粗细. 然后，我们生成更新过程：
 
 ```python
-ani = animation.FuncAnimation(fig, update, frames=num_samples // update_step)
+ani = animation.FuncAnimation(fig, update, frames=num_samples // update_step, repeat=False)
 ```
 
-这个函数使用 `update` 作为一个回调函数（callback）来传入.
+这个函数使用 `update` 作为一个回调函数（callback）来传入. 我们传入参数 `repeat=False`，其目的是使得帧达到最大值时不再反复执行并使得传入 `update` 参数的 `frame` 清零. 请读者思考，如果不做如此处理，会发生什么问题？另一种方式是传入 `init_func` 函数来清空画面. 有兴趣的读者也可以基于此进行修改，使得初始化过程更加清晰，主程序的流程更加简短.
 
 !!! notes "回调函数"
 
@@ -371,7 +371,7 @@ if __name__ == "__main__":
     plt.title("Estimating pi using Monte Carlo method: 0")
     plt.xlabel("x")
     plt.ylabel("y")
-    ani = animation.FuncAnimation(fig, update, frames=num_samples // update_step)
+    ani = animation.FuncAnimation(fig, update, frames=num_samples // update_step, repeat=False)
     # ani.save("monte_carlo_estimation.gif", writer="pillow", fps=10)
     plt.show()
 ```
