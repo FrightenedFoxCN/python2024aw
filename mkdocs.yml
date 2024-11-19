@@ -29,6 +29,7 @@ nav:
     - 基本输入输出: faq/basic_io.md
     - 类型与值: faq/typing.md
     - map 函数与列表推导式: faq/map.md
+    - 关于实验考试的提示: faq/exam_tips.md
   - 实验文档:
     - bonus/index.md
     - 环境配置指南: bonus/00env.md
