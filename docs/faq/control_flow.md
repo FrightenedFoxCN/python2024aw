@@ -123,7 +123,7 @@ else:
 
     其中中括号表示这一部分是可选的. 在一个 `#!python match` 语句中，可以插入多个 `#!python case` 子句. 它会根据 `<subject_expr>` 的值找到第一个满足 `<patterns>` 且 `<cond_expr>` 为真的 `#!python case` 子句并执行其下的语句块. 而 `<pattern>` 则有许多种，其中可以实现赋值操作等操作. 有兴趣的读者可以阅读[官方描述](https://docs.python.org/3/reference/compound_stmts.html#patterns)以获得进一步的理解.
 
-`#python if` 语句的另一种用法是用在一个表达式中. 一个表达式可以形如：
+`#!python if` 语句的另一种用法是用在一个表达式中. 一个表达式可以形如：
 
 ```python
 <expr1> if <cond_expr> else <expr2>
