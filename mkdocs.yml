@@ -31,6 +31,7 @@ nav:
     - 程序的控制流: faq/control_flow.md
     - 复合类型: faq/complex_types.md
     - map 函数与列表推导式: faq/map.md
+    - 标准库: faq/stdlib.md
     - 关于实验考试的提示: faq/exam_tips.md
   - 实验文档:
     - bonus/index.md
@@ -40,6 +41,7 @@ nav:
     # - Quine!: bonus/02quine.md
   - 一些有意思的补充资料:
     - interesting-addendum/index.md
+    - 语言参考文档阅读入门: interesting-addendum/lang_ref.md
     # - Python 虚拟环境管理: interesting-addendum/environment.md
     # - 运用 Python 学习大学数学: interesting-addendum/sympy.md
 extra_javascript:
