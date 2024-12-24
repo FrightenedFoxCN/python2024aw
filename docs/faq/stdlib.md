@@ -4,11 +4,11 @@
 
     [标准库](https://docs.python.org/zh-cn/3/library/index.html)指的是 Python 自带的一些可用的函数库. 读者可以自行阅读文档中关于它的叙述. 在这里，我们会首先介绍文档书写和阅读的规范，然后再介绍一些重要的模块. 在计算机相关的学习中，文档阅读能力往往是相当重要的，标准库文档也是大量可用的 Python 库文档的参照，对其进行阅读，并了解其中使用的术语和惯例将会有助于读者更进一步的学习. 另外，鉴于其它的文档可能没有中译，在分析过程中，我们将会引用英文的文档，再进行解释，读者也可自行打开中文文档对照阅读.
 
-    一般地，在标准库文档中的术语的定义如未说明，都会出现在[语言参考手册](https://docs.python.org/zh-cn/3/reference/index.html)中，但是这种文档的叙述往往会更加技术性，也会有更多（或者说，过多）掉书袋式的专业内容. 我们将会在[补充材料](../../interesting-addendum/lang_ref)中讨论它的解读方式，供有兴趣的读者参考.
+    一般地，在标准库文档中的术语的定义如未说明，都会出现在[语言参考手册](https://docs.python.org/zh-cn/3/reference/index.html)中，但是这种文档的叙述往往会更加技术性，也会有更多（或者说，过多）掉书袋式的专业内容. 我们将会在[补充材料](../interesting-addendum/lang_ref.md)中讨论它的解读方式，供有兴趣的读者参考.
 
 ## 标准库的阅读方式
 
-让我们以 [`#!python str` 类型的文档](https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str)为例. 我们已经在[之前的学习](../complex_types)中了解了它的基本概念，接下来，我们将会一起阅读理解标准库中对其的一些叙述，借此来理解标准库文档中的术语和书写惯例.
+让我们以 [`#!python str` 类型的文档](https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str)为例. 我们已经在[之前的学习](complex_types.md)中了解了它的基本概念，接下来，我们将会一起阅读理解标准库中对其的一些叙述，借此来理解标准库文档中的术语和书写惯例.
 
 在标准库的介绍当中，标题之下首先出现了一些引言：
 
@@ -34,7 +34,7 @@
 
     > *Changed in version 3.3*: For backwards compatibility with the Python 2 series, the `u` prefix is once again permitted on string literals. It has no effect on the meaning of string literals and cannot be combined with the `r` prefix.
 
-在阅读这些内容之前，需要补充一些背景知识. 首先，在书写标准库文档时，作者通常字斟句酌. 也就是说，每一句叙述或者是功能性的描述，或者是设计者设计时思路的体现. 对于一些不太细致的文档而言，这一点不一定成立，但是 Python 标准库文档并非如此. 其次，标准库文档的目标是让编程人员快速入门这种类型/模块的使用方式，所以对于熟练的编程人员（希望读者现在已经配得上这个称呼），在阅读标准库的时候，应当配合编程实践完成——你可以不断地去尝试其中描述的内容，来对这些内容获得更具体的理解. 
+在阅读这些内容之前，需要补充一些背景知识. 首先，在书写标准库文档时，作者通常字斟句酌. 也就是说，每一句叙述或者是功能性的描述，或者是设计者设计时思路的体现. 对于一些不太细致的文档而言，这一点不一定成立，但是 Python 标准库文档并非如此. 其次，标准库文档的目标是让编程人员快速入门这种类型/模块的使用方式，所以对于熟练的编程人员（希望读者现在已经配得上这个称呼），在阅读标准库的时候，应当配合编程实践完成——你可以不断地去尝试其中描述的内容，来对这些内容获得更具体的理解.
 
 接下来，让我们回到文档. 前面一部分开门见山，介绍了字符串类型的语法（syntax，即它“长什么样”）和语义（semantics，即它“表达什么含义”）. 第一句话就告诉你，字符串表示的是文本型数据（textual data），即它存储的是文本；第二句话告诉你，字符串是**不可变的**（immutable）的 Unicode 码点（code point）组成的序列（sequence）；第三句话及后续的列表、以及紧接着的一段告诉你字符串的语法长什么样，以及它的各种写法有什么作用.
 
@@ -42,7 +42,7 @@
 
     Unicode 编码是一个非常复杂的编码模式. 关于它的最详尽的描述可见于其[标准](https://www.unicode.org/versions/Unicode16.0.0/UnicodeStandard-16.0.pdf)的叙述. 同样，这也相当复杂，关于码点的省流介绍如下（引自 2.4 节开头的位置）：
 
-    > On a computer, abstract characters are encoded internally as numbers. To create a complete character encoding, it is necessary to define the list of all characters to be encoded and to establish systematic rules for how the numbers represent the characters. 
+    > On a computer, abstract characters are encoded internally as numbers. To create a complete character encoding, it is necessary to define the list of all characters to be encoded and to establish systematic rules for how the numbers represent the characters.
     >
     > The range of integers used to code the abstract characters is called the codespace. A particular integer in this set is called a code point. When an abstract character is mapped or assigned to a particular code point in the codespace, it is then referred to as an encoded character.
 
@@ -130,7 +130,7 @@ print(r"hello\nworld")
 
     为了生成密码学强的随机数，实际上我们需要一些专有的硬件资源. 在 [`#!python secrets` 库](https://docs.python.org/3/library/secrets.html#module-secrets)当中，Python 提供了一些对应的函数. 粗略地讲，这个硬件资源当中“充满噪声”，其中存储了一堆不知为何物的信息，在需要随机数的时候，系统会从中取一点信息. 并且，系统可以通过充放电重置里边的信息，以保证随机数是“足够随机的”. 这样的硬件资源就被称作熵池. 当然，在长期使用中，会出现熵池混乱度下降的情况，也有可能出现可预测的随机数，近年来也有一系列关于此种攻击的研究.
 
-基于此，我们就知道了 `#!python random` 库的一些功能的意义了. 其中一部分的函数是用来设置伪随机数生成器的状态的，另一部分函数是用来使得伪随机数生成器可以生成一个随机数的. 前一部分被官方文档称作簿记函数（book-keeping function），注意，这里的 book 更好的理解方式是账本（作为一个英语笑话，有兴趣的读者可以自己查一下 cook the book 的意思，并非焚书），它相当于是记下了随机数生成器每次生成的过程. 
+基于此，我们就知道了 `#!python random` 库的一些功能的意义了. 其中一部分的函数是用来设置伪随机数生成器的状态的，另一部分函数是用来使得伪随机数生成器可以生成一个随机数的. 前一部分被官方文档称作簿记函数（book-keeping function），注意，这里的 book 更好的理解方式是账本（作为一个英语笑话，有兴趣的读者可以自己查一下 cook the book 的意思，并非焚书），它相当于是记下了随机数生成器每次生成的过程.
 
 最常见的簿记函数是 `#!python random.seed(a=None, version=2)`. 我们已经说过，在阅读标准库的时候，里边的函数写法就是函数定义的写法. 也就是说，这个函数在定义时就是有两个可选参数的. 其中 *version* 参数并不重要，仅仅是版本号，而参数 *a* 则是设置的随机数种子，也就是说，我们从哪个地方开始生成随机数，它会决定一系列随机数的生成. 如果它的值是默认值 `None`，那么它会以系统时间，或者在有随机源（即熵池）的情况下，以随机源生成的随机数为种子. 从相同的种子出发，用相同的方法总能生成一系列相同的随机数.
 
@@ -140,9 +140,9 @@ print(r"hello\nworld")
 
 另外，还有一些在不同的分布下（例如正态分布、指数分布等等）生成浮点数的方式，可以参照标准库的叙述.
 
-对于整数的生成，最具代表性的方法是 
+对于整数的生成，最具代表性的方法是
 
-`random.randrange(stop)`<br>`random.randrange(start, stop[, step])` 
+`random.randrange(stop)`<br>`random.randrange(start, stop[, step])`
 
 还记得我们已经说过，在文档中方括号的含义是“可选”. 因此，这就意味着它有下面三种形式：
 
@@ -150,7 +150,7 @@ print(r"hello\nworld")
 - `random.randrange(start, stop)`
 - `random.randrange(start, stop, step)`
 
-其中 *start*，*stop* 和 *step* 三个参数的值就相当于 `#!python range` 类的三个参数. 它会从这个范围内机会均等地取出一个整数（依然是左闭右开）. 作为一个简写，我们也有 `random.randint(a, b)`，它相当于 `random.randrange(a, b + 1)`. 
+其中 *start*，*stop* 和 *step* 三个参数的值就相当于 `#!python range` 类的三个参数. 它会从这个范围内机会均等地取出一个整数（依然是左闭右开）. 作为一个简写，我们也有 `random.randint(a, b)`，它相当于 `random.randrange(a, b + 1)`.
 
 !!! 整数抽取的均等性问题
 

@@ -16,7 +16,7 @@
 
 ### 库安装和引入
 
-如果你尚未安装 NumPy 和 Pillow，可以参照[环境配置指南](./00env.md)中的指导进行安装. 在自行编写的 Python 脚本顶部输入
+如果你尚未安装 NumPy 和 Pillow，可以参照[环境配置指南](../00env.md)中的指导进行安装. 在自行编写的 Python 脚本顶部输入
 
 ```python
 import numpy as np
@@ -64,7 +64,7 @@ img.show()
 
 你会发现，弹出了一个图片浏览器窗口，并且其中出现了一个很小的白框框. 查看文件属性发现，它确实是一个 8*8 大小的图片：
 
-![white-result](../assets/lab1/white-result.png)
+![white-result](../../assets/lab1/white-result.png)
 
 再执行：
 
@@ -74,7 +74,7 @@ img.save('all_white.png')
 
 你会发现在**代码的同级目录**下出现了一个图片文件，如下图：
 
-![code-dir](../assets/lab1/code-dir.png)
+![code-dir](../../assets/lab1/code-dir.png)
 
 !!! note "关于保存路径和文件名"
 

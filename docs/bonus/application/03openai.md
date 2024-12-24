@@ -22,7 +22,7 @@
 
 ### 环境配置和安装
 
-参考[环境配置指南](00env.md)中的指导安装 openai 库. 在 Thonny 的工具提供的包管理器中可能会无法搜索到这个库，此时可以点击工具 -> 打开系统 Shell，然后输入
+参考[环境配置指南](../00env.md)中的指导安装 openai 库. 在 Thonny 的工具提供的包管理器中可能会无法搜索到这个库，此时可以点击工具 -> 打开系统 Shell，然后输入
 
 ```powershell
 python -m pip install openai
@@ -280,10 +280,10 @@ client = OpenAI(
 
 while True:
     input_line = input()
-    
+
     if input_line == "":
         break
-    
+
     message = {
         "role": "user",
         "content": input_line
@@ -297,7 +297,7 @@ while True:
     print(chat_completion.choices[0].message.content)
 ```
 
-这里的设置是输入空行退出. 在这段代码的基础上，读者可以尝试进行更多的交互，或者对交互体验进行优化. 当然，也可以尝试给 gpt-4o 发送图片等等. 
+这里的设置是输入空行退出. 在这段代码的基础上，读者可以尝试进行更多的交互，或者对交互体验进行优化. 当然，也可以尝试给 gpt-4o 发送图片等等.
 
 ## 提交方式
 
