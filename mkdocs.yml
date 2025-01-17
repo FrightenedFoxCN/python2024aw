@@ -37,20 +37,20 @@ nav:
   - 实验文档:
     - bonus/index.md
     - 环境配置指南: bonus/00env.md
-    - 基于 NumPy 与 Pillow 的图像创建与基本变换: bonus/application/01numpy.md
-    - 基于 Monte-Carlo 算法实现积分计算及其可视化: bonus/application/02monte-carlo.md
-    - 连接和使用 OpenAI 给出的 API: bonus/application/03openai.md
-    # - 面向应用的实验组:
-    #   - bonus/application/index.md
-    #   - 基于 NumPy 与 Pillow 的图像创建与基本变换: bonus/application/01numpy.md
-    #   - 基于 Monte-Carlo 算法实现积分计算及其可视化: bonus/application/02monte-carlo.md
-    # - 面向计算机基础知识的实验组:
-    #   - bonus/internal/index.md
-    #   - 简单的语句解析和基本输入输出: bonus/internal/01basic-io.md
-    # - 面向应用开发的实验组:
-    #   - bonus/developer/index.md
-    # - 脑力风暴实验组:
-    #   - Quine!: bonus/brainstorming/01quine.md
+    # - 基于 NumPy 与 Pillow 的图像创建与基本变换: bonus/application/01numpy.md
+    # - 基于 Monte-Carlo 算法实现积分计算及其可视化: bonus/application/02monte-carlo.md
+    # - 连接和使用 OpenAI 给出的 API: bonus/application/03openai.md
+    - 面向应用的实验组:
+      - bonus/application/index.md
+      - 基于 NumPy 与 Pillow 的图像创建与基本变换: bonus/application/01numpy.md
+      - 基于 Monte-Carlo 算法实现积分计算及其可视化: bonus/application/02monte-carlo.md
+    - 面向计算机基础知识的实验组:
+      - bonus/internal/index.md
+      - 简单的语句解析和基本输入输出: bonus/internal/01basic-io.md
+    - 面向应用开发的实验组:
+      - bonus/developer/index.md
+    - 脑力风暴实验组:
+      - Quine!: bonus/brainstorming/01quine.md
   - 一些有意思的补充资料:
     - interesting-addendum/index.md
     - 语言参考文档阅读入门: interesting-addendum/lang_ref.md
