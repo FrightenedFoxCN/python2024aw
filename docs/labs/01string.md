@@ -21,7 +21,7 @@ def single_line_process(input_str, line):
     ##############################################################
     # 在这里实现你的代码
     ##############################################################
-    
+
     return input_str # 将返回的东西替换为你的计算得到的值
 ```
 
@@ -38,7 +38,7 @@ def single_line_process(input_str, line):
 ```python
 single_line_process("ABC", "A = B;") == "BBC"
 single_line_process("AAC", "A = B;") == "BAC"
-single_line_process("ABACAB", "AB = CDE;"), "CDEACAB"
+single_line_process("ABACAB", "AB = CDE;") == "CDEACAB"
 ```
 
 而空字符串的情形比较特殊：
@@ -67,7 +67,7 @@ Ran 1 test in 0.004s
 OK
 ```
 
-此时即可直接提交 `test.py` 作为你的提交.
+通过测试后，请将 lab2 目录压缩为一个 ZIP 文件，并提交到学在浙大。
 
 ## 选做的拓展知识之一：代码混淆
 
