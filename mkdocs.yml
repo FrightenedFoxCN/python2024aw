@@ -38,6 +38,7 @@ nav:
     - labs/index.md
     - 环境配置指南: labs/00env.md
     - 字符串替换系统: labs/01string.md
+    - 循环和执行流控制: labs/02loop.md
     # - 基于 NumPy 与 Pillow 的图像创建与基本变换: bonus/application/01numpy.md
     # - 基于 Monte-Carlo 算法实现积分计算及其可视化: bonus/application/02monte-carlo.md
     # - 连接和使用 OpenAI 给出的 API: bonus/application/03openai.md
