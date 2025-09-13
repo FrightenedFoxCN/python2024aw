@@ -81,7 +81,7 @@ Thonny 是一个用于学习和教学编程的 Python 集成开发环境（IDE�
 
 ## Visual Studio Code 的安装和使用
 
-进入[官方网页](https://code.visualstudio.com/)下载并安装. 注意，Visual Studio Code（下简称 VSCode）是一个**编辑器**而非集成开发环境，因此想要在 Vscode 中运行 python，读者需要先进行 python 的安装，同时为了更好的使用，我们给出了一些常用的插件.
+进入[官方网页](https://code.visualstudio.com/)下载并安装. 注意，Visual Studio Code（下简称 VSCode）是一个**编辑器**而非集成开发环境，因此想要在 VSCode 中运行 Python，读者需要先进行 Python 的安装，同时为了更好的使用，我们给出了一些常用的插件.
 
 ### Python 的安装和命令行使用
 
