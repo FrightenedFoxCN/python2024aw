@@ -2,7 +2,7 @@
 
 <!-- 如序言所述，我们建议读者使用 Visual Studio Code 完成实验，因此其使用方式会放在最开始进行介绍. 与之对应的，我们也准备了命令行的使用方法的介绍. 我们也保留了关于 Thonny 的介绍，这是历来学生较为喜欢的方式，也最为简单. -->
 
-在本指南中，我们主要介绍 Thonny 的安装与使用，和 Visual Studio Code 的安装与使用以及在 vscode 中运行 python 需要的环境配置.
+在本指南中，我们主要介绍 Thonny 的安装与使用，和 Visual Studio Code 的安装与使用以及在 VSCode 中运行 Python 需要的环境配置.
 
 ## Thonny 的安装和使用
 
