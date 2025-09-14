@@ -234,6 +234,8 @@ VSCode 一大核心功能就是插件（extensions）. 安装之后打开，会�
 1. 成功输出 `Hello, Python2025` 的结果截图，
 2. 自己的系统信息、硬件配置以及所使用的 Python 版本信息.
 
+请在 Sept. 30 23:59 之前提交到学在浙大.
+
 ## 参考资料
 
 - [Visual Studio Code 官网](https://code.visualstudio.com/)
